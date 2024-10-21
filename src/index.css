@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos para mejorar la legibilidad y el contraste */
+@layer base {
+  body {
+    @apply text-gray-900 dark:text-gray-100 bg-gray-100 dark:bg-gray-900;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Enfoque visible para elementos interactivos */
+  a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    @apply outline-none ring-2 ring-green-500 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-900;
+  }
+
+  /* Estilos para enlaces de salto */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:text-black focus:p-4;
+  }
+}
+
+/* Clases de utilidad para patrones de color accesibles */
+@layer utilities {
+  .text-accessible-green {
+    @apply text-green-700 dark:text-green-300;
+  }
+  .bg-accessible-green {
+    @apply bg-green-600 dark:bg-green-700;
+  }
+  .hover-accessible-green {
+    @apply hover:bg-green-700 dark:hover:bg-green-800;
+  }
+}
+
+/* Estilos para mejorar la legibilidad */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold mb-4;
+}
+
+h1 { @apply text-3xl; }
+h2 { @apply text-2xl; }
+h3 { @apply text-xl; }
+
+/* Estilos para mejorar la accesibilidad de formularios */
+label {
+  @apply block mb-2 font-medium;
+}
+
+input, select, textarea {
+  @apply w-full p-2 border rounded-md dark:bg-gray-800 dark:border-gray-600;
+}
+
+/* Estilos para botones accesibles */
+.btn {
+  @apply px-4 py-2 rounded-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply bg-accessible-green text-white hover-accessible-green focus:ring-green-500;
+}
+
+/* Estilos para tarjetas */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6;
+}
+
+/* Estilos para alto contraste */
+.high-contrast {
+  @apply text-white bg-black;
+}
+
+.high-contrast .bg-accessible-green {
+  @apply bg-yellow-400 text-black;
+}
+
+.high-contrast .text-accessible-green {
+  @apply text-yellow-400;
+}
+
+.high-contrast .hover-accessible-green:hover {
+  @apply bg-yellow-500;
+}
+
+/* Ajustes adicionales para mejorar la legibilidad en modo de alto contraste */
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6 {
+  @apply text-yellow-400;
+}
+
+.high-contrast a {
+  @apply text-yellow-400 underline;
+}
+
+.high-contrast .card {
+  @apply bg-gray-900 border-2 border-white;
+}
+
+/* Estilos para mejorar la legibilidad de los formularios en modo de alto contraste */
+.high-contrast input,
+.high-contrast select,
+.high-contrast textarea {
+  @apply bg-black text-white border-white;
+}
+
+.high-contrast button {
+  @apply border-2 border-white;
+}
